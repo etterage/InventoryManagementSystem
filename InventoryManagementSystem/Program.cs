@@ -1,7 +1,18 @@
+using InventoryManagementSystem.Data;
+using Microsoft.AspNetCore.Connections;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// DBContext
+builder.Services.AddDbContext<InventoryContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddControllersWithViews();
+//
 
 var app = builder.Build();
 
