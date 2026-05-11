@@ -1,0 +1,26 @@
+﻿body {
+    margin: 0;
+    background-color: #f5f6fa;
+}
+
+.sidebar {
+    min-width: 290px;
+    min-height: 100vh;
+    background: #129492;
+}
+
+.sidebar .nav-link {
+    color: white;
+}
+
+.sidebar .nav-link:hover,
+.sidebar  a:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.popUp {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
+    border: solid;
+    border-width: 1px;
+    border-color: #f3f3f3;
+}

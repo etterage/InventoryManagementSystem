@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        toastr.options.closeButton = true;
+        toastr.options.progressBar = true;
+
+        var success = '@TempData["success"]';
+        var deletesuccess = '@TempData["deletesuccess"]';
+        var deletefailed = '@TempData["deletefailed"]';
+        var updatesuccess = '@TempData["updatesuccess"]';
+
+        if(success) {
+            toastr.success(success);
+        }
+        if(deletesuccess) {
+            toastr.success(deletesuccess);
+        }
+        if(deletefailed) {
+            toastr.warning(deletefailed);
+        }
+        if (updatesuccess) {
+            toastr.success(updatesuccess);
+        }
+    </script>
+}
+
+@model List<Product>
+
+<div>
+    <div class="d-flex align-items-center justify-content-between">
+        <h5 class="title mb-0">Products</h5>
+        <a class="btn btn-outline-secondary" asp-action="Add">
+            Add Product
+        </a>
+    </div>
+    <div class="popUp bg-white mt-3 rounded-3 p-4">
+        <div class="shadow-sm">
+            <table class="table table-bordered align-middle border border-1">
+                <thead class="">
+                    <tr class="">
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 1;
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.ImagePath</td>
+                            <td>@item.ProductCode</td>
+                            <td>@item.Name</td>
+                            <td>
+                                <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">
+                                    Edit
+                                </a>
+                                <form method="post" asp-action="Delete" style="display:inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        i++;
+                    }
+                    
+                </tbody>
+                
+            </table>
+        </div>
+
+    </div>
+</div>
