@@ -1,0 +1,21 @@
+.comp-container {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
+    border: solid;
+    border-width: 1px;
+    border-color: #f3f3f3;
+}
+
+.cont-title {
+    border-bottom: .01px solid #dfdfdf;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.03);
+    color: #393939;
+    font-weight: 500;
+}
+
+.cont-title p{
+    margin: 0;
+}

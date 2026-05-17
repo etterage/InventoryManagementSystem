@@ -40,7 +40,6 @@ namespace InventoryApp.Controllers
         {
             if (!ModelState.IsValid)
             {
-
                 return View("Add", model);
             }
 
@@ -98,18 +97,11 @@ namespace InventoryApp.Controllers
                 return View(product);
             }
 
-            try
-            {
-                _context.Update(product);
-                await _context.SaveChangesAsync();
+            _context.Update(product);
+            await _context.SaveChangesAsync();
 
-                TempData["UpdateSuccess"] = "Product updated successfully...";
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                return View(product);
-            }
+            TempData["UpdateSuccess"] = "Product updated successfully...";
+            return RedirectToAction("Index");
 
         }
 

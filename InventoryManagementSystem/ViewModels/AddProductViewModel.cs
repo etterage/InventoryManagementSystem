@@ -9,7 +9,6 @@ namespace InventoryApp.ViewModels
     {
         [Required]
         [StringLength(150)]
-        [Display(Name = "Product Name")]
         public string Name { get; set; }
 
         [StringLength(500)]
@@ -39,7 +38,11 @@ namespace InventoryApp.ViewModels
         [Display(Name = "Is Active")]
         public bool IsActive { get; set; } = true;
 
+        //[Required]
+        [Display(Name = "Category Id")]
         public string? CategoryId { get; set; }
+        
+        //public string? Category { get; set; }
         //public IEnumerable<SelectListItem> Category { get; set; }
     }
 }
